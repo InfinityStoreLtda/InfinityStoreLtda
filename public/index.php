@@ -5,6 +5,14 @@ use App\Router;
 
 require __DIR__.'/../vendor/autoload.php';
 $config = require __DIR__.'/../config.php';
+$localConfigPath = __DIR__.'/../config.local.php';
+
+if (is_file($localConfigPath)) {
+  $localConfig = require $localConfigPath;
+  if (is_array($localConfig)) {
+    $config = array_replace_recursive($config, $localConfig);
+  }
+}
 
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
