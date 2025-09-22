@@ -44,10 +44,11 @@ class Invoice extends BaseModel {
 
       if ($this->db->lastInsertId()) {
         $sqlL = "INSERT INTO transacoes(data,tipo,contrato_id,empresa_pagadora_id,centro_custo_id,categoria,descricao,valor,status_pagamento,parcela_numero,parcela_total)
-               VALUES(:d,'receita',:ct,:cl,:cc,'Fatura','Fatura :mes',:v,'pendente',1,1)";
+               VALUES(:d,'receita',:ct,:cl,:cc,'Fatura',:descricao,:v,'pendente',1,1)";
+        $mes = DateTime::createFromFormat('Y-m-d', $competencia)?->format('m/Y') ?? date('m/Y', strtotime($competencia));
         $this->db->prepare($sqlL)->execute([
           ':d' => $competencia, ':ct' => $c['id'], ':cl' => $c['empresa_pagadora_id'], ':cc' => $c['centro_custo_id'],
-          ':mes' => DateTime::createFromFormat('Y-m-d', $competencia)?->format('m/Y') ?? date('m/Y', strtotime($competencia)), ':v' => $total
+          ':descricao' => "Fatura {$mes}", ':v' => $total
         ]);
         $created++;
       }
