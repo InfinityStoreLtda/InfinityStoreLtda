@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <h3>Contratos Vigentes</h3>
 <table class="table table-sm table-striped"><thead><tr>
-  <th>Cliente</th><th>Nº</th><th>Processo</th><th>Empenho</th><th>Início</th><th>Fim</th><th>Valor Mensal</th><th>Status</th><th>Centro Custo</th>
+  <th>Cliente</th><th>Nº</th><th>Processo</th><th>Empenho</th><th>Início</th><th>Fim</th><th>Valor Mensal</th><th>Status</th><th>Centro de Custo</th>
 </tr></thead><tbody>
 <?php foreach (($rows ?? []) as $r): ?>
 <tr>
