@@ -1,12 +1,22 @@
-- 👋 Hi, I’m @InfinityStoreLtda
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+# ERP PHP
 
-<!---
-InfinityStoreLtda/InfinityStoreLtda is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+Aplicação PHP simples seguindo padrão MVC leve para gestão de contratos, faturas e relatórios.
+
+## Requisitos
+
+- PHP 8.1+
+- Extensões: PDO (MySQL), mbstring, intl
+- Composer
+
+## Instalação
+
+```bash
+composer install
+cp config.php config.local.php # ajuste credenciais se necessário
+```
+
+Configure as credenciais de banco em `config.php` (ou arquivo local carregado manualmente) e aponte o servidor web para o diretório `public/`.
+
+## Cron
+
+Para gerar faturas automaticamente no primeiro dia do mês, agende o script `cron/faturar_mensal.php` no crontab.
