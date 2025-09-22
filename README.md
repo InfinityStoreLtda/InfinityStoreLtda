@@ -15,7 +15,7 @@ composer install
 cp config.php config.local.php # ajuste credenciais se necessário
 ```
 
-Configure as credenciais de banco em `config.php` (ou arquivo local carregado manualmente) e aponte o servidor web para o diretório `public/`.
+A aplicação carrega automaticamente `config.local.php`, quando presente, mesclando-o ao `config.php`. Ajuste suas credenciais nesse arquivo local (ou diretamente em `config.php`, se preferir) e aponte o servidor web para o diretório `public/`.
 
 ## Cron
 
